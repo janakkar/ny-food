@@ -1,0 +1,10 @@
+span {
+    padding-right: 10px;
+}
+
+.product-grade {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+}

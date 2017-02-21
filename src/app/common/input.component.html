@@ -1,0 +1,6 @@
+<label for="field{{controlName}}">{{controlLabel}}</label>
+<div class="amount">
+    <input type="number" step="0.1" id="field{{controlName}}" [ngModel]="amount"
+           (ngModelChange)="onChange($event)">
+    <span class="measure">{{measure}}</span>
+</div>

@@ -1,0 +1,9 @@
+.measure {
+    margin-top: 5px;
+    font-size: smaller;
+    font-style: italic;
+}
+
+.amount {
+    display: flex;
+}

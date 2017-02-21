@@ -1,0 +1,52 @@
+<div>
+    <div class="grade-panel">
+        <span *ngIf="showCalculation()" class="score">Score: {{calculation}}</span>
+        <div class="h-container">
+            <template ngFor let-grade [ngForOf]="grades" let-i="index">
+                <div kyf-badge [label]="grade" [isActive]="isActive(grade)"></div>
+                <div *ngIf="i < grades.length - 1" class="line"></div>
+            </template>
+        </div>
+    </div>
+    <form class="container" [formGroup]="productForm" (ngSubmit)="onSave()">
+        <div class="row">
+            <label for="productName">Product</label>
+            <div class="h-container">
+                <input type="text" id="productName" formControlName="name">
+                <input type="button" value="Compare" (click)="openModal()">
+                <input type="button" value="Clear" (click)="clear()">
+            </div>
+            <div class="related-products" kyf-modal [blocking]="true">
+                <span (click)="closeModal()" style="align-self: flex-end">x</span>
+                <div kyf-product-list *ngIf="isModalOpen()" [products]="relatedProducts | async"></div>
+            </div>
+        </div>
+        <div class="row">
+            <label for="productType">Product type</label>
+            <kyf-dropdown id="productType"
+                          [listItems]="productTypes"
+                          formControlName="productType"></kyf-dropdown>
+        </div>
+        <div class="h-container bad ingredients" formArrayName="badIngredients">
+            <template ngFor let-key [ngForOf]="getBadIngredients()" let-i="index">
+                <div class="row" formGroupName="{{i}}">
+                    <div kyf-input [measure]="metadata[key].metric" [controlLabel]="metadata[key].label"
+                         [controlName]="metadata[key].name"
+                         formControlName="amount"></div>
+                </div>
+            </template>
+        </div>
+        <div class="h-container good ingredients" formArrayName="goodIngredients">
+            <template ngFor let-key [ngForOf]="getGoodIngredients()" let-i="index">
+                <div class="row" formGroupName="{{i}}">
+                    <div kyf-input [measure]="metadata[key].metric" [controlLabel]="metadata[key].label"
+                         [controlName]="metadata[key].name"
+                         formControlName="amount"></div>
+                </div>
+            </template>
+        </div>
+        <div class="row">
+            <input type="submit" value="{{actionName}}">
+        </div>
+    </form>
+</div>

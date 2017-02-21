@@ -1,0 +1,201 @@
+ng build <options...>
+  Builds your app and places it into the output path (dist/ by default).
+  aliases: b
+  --target (String) (Default: development)
+    aliases: -t <value>, -dev (--target=development), -prod (--target=production)
+  --environment (String) (Default: )
+    aliases: -e <value>
+  --output-path (Path) (Default: null)
+    aliases: -o <value>
+  --watch (Boolean) (Default: false)
+    aliases: -w
+  --watcher (String)
+  --suppress-sizes (Boolean) (Default: false)
+  --base-href (String) (Default: null)
+    aliases: -bh <value>
+  --aot (Boolean) (Default: false)
+  --sourcemap (Boolean)
+    aliases: -sm
+  --vendor-chunk (Boolean) (Default: true)
+  --verbose (Boolean) (Default: false)
+  --progress (Boolean) (Default: true)
+  --i18n-file (String) (Default: null)
+  --i18n-format (String) (Default: null)
+  --locale (String) (Default: null)
+  --deploy-url (String) (Default: null)
+    aliases: -d <value>
+  --output-hashing=none|all|media|bundles (String) define the output filename cache-busting hashing mode
+  --extract-css (Boolean) (Default: true)
+
+No help entry for 'build.run'
+ng completion
+  Adds autocomplete functionality to `ng` commands and subcommands
+
+ng doc <keyword>
+  Opens the official Angular documentation for a given keyword.
+
+ng e2e
+  Run e2e tests in existing project
+
+ng generate <blueprint> <options...>
+  Generates new code from blueprints.
+  aliases: g
+  --dry-run (Boolean) (Default: false)
+    aliases: -d
+  --verbose (Boolean) (Default: false)
+    aliases: -v
+  --pod (Boolean) (Default: false)
+    aliases: -p
+  --classic (Boolean) (Default: false)
+    aliases: -c
+  --dummy (Boolean) (Default: false)
+    aliases: -dum, -id
+  --in-repo-addon (String) (Default: null)
+    aliases: --in-repo <value>, -ir <value>
+
+ng get <options...>
+  Get a value from the configuration.
+  --global (Boolean) (Default: false)
+
+No help entry for 'github-pages-deploy.run'
+ng help <command-name (Default: all)>
+  Shows help for the CLI
+
+ng init <glob-pattern> <options...>
+  Creates a new angular-cli project in the current folder.
+  aliases: i
+  --dry-run (Boolean) (Default: false)
+    aliases: -d
+  --verbose (Boolean) (Default: false)
+    aliases: -v
+  --link-cli (Boolean) (Default: false)
+    aliases: -lc
+  --skip-npm (Boolean) (Default: false)
+    aliases: -sn
+  --skip-git (Boolean) (Default: false)
+    aliases: -sg
+  --skip-tests (Boolean) (Default: false)
+    aliases: -st
+  --skip-commit (Boolean) (Default: false)
+    aliases: -sc
+  --name (String) (Default: )
+    aliases: -n <value>
+  --source-dir (String) (Default: src)
+    aliases: -sd <value>
+  --style (String) (Default: css)
+  --prefix (String) (Default: app)
+    aliases: -p <value>
+  --mobile (Boolean) (Default: false)
+  --routing (Boolean) (Default: false)
+  --inline-style (Boolean) (Default: false)
+    aliases: -is
+  --inline-template (Boolean) (Default: false)
+    aliases: -it
+
+No help entry for 'init.run'
+ng lint
+  Lints code in existing project
+
+ng new <options...>
+  Creates a new directory and runs ng init in it.
+  --dry-run (Boolean) (Default: false)
+    aliases: -d
+  --verbose (Boolean) (Default: false)
+    aliases: -v
+  --link-cli (Boolean) (Default: false)
+    aliases: -lc
+  --skip-npm (Boolean) (Default: false)
+    aliases: -sn
+  --skip-git (Boolean) (Default: false)
+    aliases: -sg
+  --skip-tests (Boolean) (Default: false)
+    aliases: -st
+  --skip-commit (Boolean) (Default: false)
+    aliases: -sc
+  --directory (String)
+    aliases: -dir <value>
+  --source-dir (String) (Default: src)
+    aliases: -sd <value>
+  --style (String) (Default: css)
+  --prefix (String) (Default: app)
+    aliases: -p <value>
+  --mobile (Boolean) (Default: false)
+  --routing (Boolean) (Default: false)
+  --inline-style (Boolean) (Default: false)
+    aliases: -is
+  --inline-template (Boolean) (Default: false)
+    aliases: -it
+
+ng serve <options...>
+  Builds and serves your app, rebuilding on file changes.
+  aliases: server, s
+  --port (Number) (Default: 4200)
+    aliases: -p <value>
+  --host (String) (Default: localhost) Listens only on localhost by default
+    aliases: -H <value>
+  --proxy-config (Path)
+    aliases: -pc <value>
+  --watcher (String) (Default: events)
+    aliases: -w <value>
+  --live-reload (Boolean) (Default: true)
+    aliases: -lr
+  --live-reload-host (String) Defaults to host
+    aliases: -lrh <value>
+  --live-reload-base-url (String) Defaults to baseURL
+    aliases: -lrbu <value>
+  --live-reload-port (Number) (Defaults to port number within [49152...65535])
+    aliases: -lrp <value>
+  --live-reload-live-css (Boolean) (Default: true) Whether to live reload CSS (default true)
+  --target (String) (Default: development)
+    aliases: -t <value>, -dev (--target=development), -prod (--target=production)
+  --environment (String) (Default: )
+    aliases: -e <value>
+  --ssl (Boolean) (Default: false)
+  --ssl-key (String) (Default: ssl/server.key)
+  --ssl-cert (String) (Default: ssl/server.crt)
+  --aot (Boolean) (Default: false)
+  --sourcemap (Boolean) (Default: true)
+    aliases: -sm
+  --vendor-chunk (Boolean) (Default: true)
+  --verbose (Boolean) (Default: false)
+  --progress (Boolean) (Default: true)
+  --open (Boolean) (Default: false) Opens the url in default browser
+    aliases: -o
+  --hmr (Boolean) (Default: false) Enable hot module replacement
+  --i18n-file (String) (Default: null)
+  --i18n-format (String) (Default: null)
+  --locale (String) (Default: null)
+  --extract-css (Boolean) (Default: null)
+
+No help entry for 'serve.run'
+ng set <options...>
+  Set a value in the configuration.
+  --global (Boolean) (Default: false)
+    aliases: -g
+
+ng test <options...>
+  Runs your app's test suite.
+  aliases: t
+  --watch (Boolean) (Default: true)
+    aliases: -w
+  --code-coverage (Boolean) (Default: false)
+    aliases: -cc
+  --lint (Boolean) (Default: false)
+    aliases: -l
+  --single-run (Boolean) (Default: false)
+    aliases: -sr
+  --progress (Boolean) (Default: true)
+  --browsers (String)
+  --colors (Boolean)
+  --log-level (String)
+  --port (Number)
+  --reporters (String)
+  --build (Boolean) (Default: true)
+  --sourcemap (Boolean) (Default: true)
+    aliases: -sm
+
+ng version <options...>
+  outputs angular-cli version
+  aliases: v, --version, -v
+  --verbose (Boolean) (Default: false)
+

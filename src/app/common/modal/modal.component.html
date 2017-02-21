@@ -1,0 +1,6 @@
+<div class="modal-overlay" *ngIf="blocking" [class.modal-hidden]="!isModalOpen"></div>
+<div class="modal-wrapper" [class.modal-hidden]="!isModalOpen">
+    <div class="modal-content">
+        <ng-content></ng-content>
+    </div>
+</div>

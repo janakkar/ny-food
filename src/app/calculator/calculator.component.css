@@ -1,0 +1,38 @@
+.ingredients {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.bad {
+    border-top: 3px dashed orangered;
+}
+
+.good {
+    border-top: 3px dashed seagreen;
+}
+
+.score {
+    align-self: center;
+}
+
+.grade-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.line {
+    height: 1px;
+    width: 10px;
+    flex-grow: 1;
+    background-color: deeppink;
+    align-self: center;
+}
+
+.related-products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

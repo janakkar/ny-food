@@ -1,0 +1,39 @@
+.grade-A {
+    background: limegreen;
+}
+
+.grade-B {
+    background: greenyellow;
+}
+
+.grade-C {
+    background: orange;
+}
+.grade-D {
+    background: mediumvioletred;
+}
+
+.grade-E {
+    background: orangered;
+}
+
+.circle {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    justify-content: center;
+    opacity: 0.3;
+}
+
+.grade {
+    color: #F2F3F4;
+    font-size: larger;
+    align-self: center;
+}
+
+.active-grade {
+    opacity: 1;
+}

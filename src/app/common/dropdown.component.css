@@ -1,0 +1,40 @@
+.nyf-dropdown {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.nyf-dropdown-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+}
+
+.nyf-dropdown-action {
+    /*flex-grow: 1;*/
+
+}
+
+.nyf-dropdown-action > input {
+    height: 25px;
+    width: 25px;
+    border-radius: 15px;
+    margin-left: 10px;
+    font-size: large;
+    border: none;
+    opacity: 0.8;
+}
+
+.nyf-arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+
+    border-top: 6px solid darkslateblue;
+    margin-top: 12px;
+}
+
+
+

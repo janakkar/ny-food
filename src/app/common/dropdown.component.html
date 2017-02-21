@@ -1,0 +1,12 @@
+<div class="nyf-dropdown" (mouseleave)="closeList()">
+    <div class="nyf-dropdown-list">
+        <input type="text" [value]="getSelectedItem()" (mouseover)="openList()">
+        <ul *ngIf="showList">
+            <li *ngFor="let item of listItems;">
+                <a (click)="selectItem(item)"><span>{{idPropertyName ? item[idPropertyName] : item}}</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="nyf-arrow-down"></div>
+    <div class="nyf-dropdown-action"><input type="button" value="+"></div>
+</div>
