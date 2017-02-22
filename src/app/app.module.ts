@@ -4,7 +4,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {HeaderComponent} from './header.component';
 import {CalculatorComponent} from './calculator/calculator.component';
 import {DropdownComponent} from "./common/dropdown.component";
 import {ProductService} from "./domain/product.service";
@@ -36,7 +35,6 @@ const myFirebaseAuthConfig = {
 @NgModule({
     declarations: [
         AppComponent,
-        HeaderComponent,
         DropdownComponent,
         CalculatorComponent,
         LoginComponent,

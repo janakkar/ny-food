@@ -3,10 +3,14 @@ import {Component} from '@angular/core';
 @Component({
     selector: '[kyf-root]',
     template: `
-    <div style="max-width: 350px">
-        <div kyf-header></div>
+    <div class="kyf-root">
+        <h1 class="kyf-header">
+          Know-Your-Food
+        </h1>
         <router-outlet></router-outlet>
-    </div>`
+    </div>`,
+    styleUrls: ['./app.component.css']
+
 })
 export class AppComponent {
 

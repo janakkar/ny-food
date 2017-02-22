@@ -11,10 +11,6 @@
     flex-grow: 3;
 }
 
-.nyf-dropdown-action {
-    /*flex-grow: 1;*/
-
-}
 
 .nyf-dropdown-action > input {
     height: 25px;

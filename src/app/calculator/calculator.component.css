@@ -1,38 +1,41 @@
 .ingredients {
-    margin-top: 10px;
-    padding: 10px;
+  margin-top: 10px;
+  padding: 10px;
 }
 
 .bad {
-    border-top: 3px dashed orangered;
+  border-top: 3px dashed orangered;
 }
 
 .good {
-    border-top: 3px dashed seagreen;
+  border-top: 3px dashed seagreen;
 }
 
 .score {
-    align-self: center;
+  align-self: center;
 }
 
 .grade-panel {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-
-
 .line {
-    height: 1px;
-    width: 10px;
-    flex-grow: 1;
-    background-color: deeppink;
-    align-self: center;
+  height: 1px;
+  width: 10px;
+  flex-grow: 1;
+  background-color: deeppink;
+  align-self: center;
+  flex-shrink: 5;
 }
 
 .related-products {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calculator {
+  display: flex;
+  flex-direction: column;
 }

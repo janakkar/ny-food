@@ -26,12 +26,15 @@ const checkNumber = function (s: string) {
 const initMetadata = function (): void {
     const createMetadata = (k: string) => {
         const label = k.substr(0, 3);
-        metadata[k] = new IngredientMetadata('mg', label, label.toLowerCase());
+        metadata[k] = new IngredientMetadata('g', label, label.toLowerCase());
     };
     Object.keys(BadIngredient).filter(n => !checkNumber(n)).forEach(createMetadata);
     Object.keys(GoodIngredient).filter(n => !checkNumber(n)).forEach(createMetadata);
 
     metadata[BadIngredient[BadIngredient.Calories]].metric = 'kJ';
+    metadata[BadIngredient[BadIngredient.Salt]].metric = 'mg';
+    metadata[BadIngredient[BadIngredient.SaturatedFats]].label = 'Fat';
+    metadata[BadIngredient[BadIngredient.SimpleSugars]].label = 'Sug';
 };
 
 @Injectable()
