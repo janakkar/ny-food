@@ -15,6 +15,7 @@ import {CanActivateIfAuthenticatedGuard} from "./login/authentication.guard";
 import { InputComponent } from './common/input.component';
 import { ModalComponent } from './common/modal/modal.component';
 import {IngredientService} from "./domain/ingredient.service";
+import { ProductsComponent } from './product/products.component';
 import { ProductGradeComponent } from './product/product-grade.component';
 import { ProductListComponent } from './product/product-list.component';
 import { BadgeComponent } from './common/badge.component';
@@ -40,6 +41,7 @@ const myFirebaseAuthConfig = {
         LoginComponent,
         InputComponent,
         ModalComponent,
+        ProductsComponent,
         ProductGradeComponent,
         ProductListComponent,
         BadgeComponent

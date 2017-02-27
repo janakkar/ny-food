@@ -1,5 +1,5 @@
-<h4>Related products with better grade</h4>
+<h4>{{title}}</h4>
 <div class="product-list">
-    <div class="product" *ngFor="let product of products;" kyf-product-grade [product]="product"
+    <div *ngFor="let product of products;" kyf-product-grade [product]="product"
          [grade]="calculateGrade(product)"></div>
 </div>

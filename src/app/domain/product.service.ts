@@ -51,6 +51,14 @@ export class ProductService {
         products.update(key, product);
     }
 
+    findAllProducts(): Observable<Product[]> {
+      return this.af.database.list('/products', {
+        query: {
+          orderByChild: 'name'
+        }
+      });
+    }
+
     findProductByName(name: string): Observable<Product[]> {
         return this.af.database.list('/products', {
             query: {

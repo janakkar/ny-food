@@ -1,4 +1,10 @@
-<div class="product-grade">
-    <span>{{product.name}}</span>
-    <div kyf-badge [isActive]="true" [label]="grade"></div>
+<div class="product">
+    <div class="product-info">
+        <h4>{{product.name}}</h4>
+        <div>
+            <span>{{product.brand}}</span>
+            <span>{{product.productType}}</span>
+        </div>
+    </div>
+    <div class="product-badge" kyf-badge [isActive]="true" [label]="grade"></div>
 </div>

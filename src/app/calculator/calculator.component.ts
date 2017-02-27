@@ -6,6 +6,7 @@ import {Calculator} from "./calculator";
 import {ModalComponent} from "../common/modal/modal.component";
 import {IngredientService, IngredientMetadataDictionary} from "../domain/ingredient.service";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 const getKey = (o: any) => {
     return o.$key;
@@ -37,7 +38,7 @@ export class CalculatorComponent implements OnInit {
     private modal: ModalComponent;
 
     constructor(private fb: FormBuilder, private productService: ProductService, private calculator: Calculator,
-                private ingredientService: IngredientService) {
+                private ingredientService: IngredientService, private router: Router) {
     }
 
     ngOnInit() {
@@ -128,5 +129,9 @@ export class CalculatorComponent implements OnInit {
         this.productForm.setValue(this.productService.createProductTemplate());
         this.product = null;
         this.actionName = ACTION_ADD;
+    }
+
+    goToProducts() {
+      this.router.navigate(['/products']);
     }
 }
