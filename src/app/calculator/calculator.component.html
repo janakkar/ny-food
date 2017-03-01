@@ -15,11 +15,14 @@
                 <input type="text" id="productName" formControlName="name">
                 <input type="button" value="Compare" (click)="openModal()">
                 <input type="button" value="Clear" (click)="clear()">
+                <input type="button" value="All Products" (click)="goToProducts()">
             </div>
             <div class="related-products" kyf-modal [blocking]="true">
                 <span (click)="closeModal()" style="align-self: flex-end">x</span>
-                <div kyf-product-list *ngIf="isModalOpen()" [products]="relatedProducts | async"></div>
-            </div>
+                <div kyf-product-list *ngIf="isModalOpen()"
+                     [title]="'Related products with better grade'"
+                     [products]="relatedProducts | async"></div>
+                </div>
         </div>
         <div class="row">
             <label for="productType">Product type</label>

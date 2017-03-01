@@ -1,10 +1,19 @@
-span {
-    padding-right: 10px;
+.product {
+    background: #D6F9DB;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4px;
 }
 
-.product-grade {
+.product-info {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    flex-grow: 8;
+    padding-left: 10px;
+}
+
+.product-badge {
+    display: flex;
     align-items: center;
-    align-content: center;
+    padding-right: 10px;
 }

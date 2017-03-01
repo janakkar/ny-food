@@ -11,6 +11,8 @@ export class ProductListComponent implements OnInit {
 
     @Input()
     private products: Product[];
+    @Input()
+    private title: String;
 
     constructor(private calculator: Calculator) {
     }

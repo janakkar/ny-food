@@ -80,8 +80,8 @@ export class Calculator {
 
     calculatedForIngredient(ingredient: Ingredient, good = true): number {
         const thresholds = (good ? goodThresholds : badThresholds)[ingredient.type];
-
-        return thresholds.filter((t) => t.checkThreshold(ingredient)).reverse()[0].grade;
+        let filtered = thresholds.filter((t) => t.checkThreshold(ingredient));
+        return filtered.length > 0 ? filtered.reverse()[0].grade : 0;
     }
 
     assignGrade(score: number): string {
