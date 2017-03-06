@@ -7,7 +7,10 @@ import {Component} from '@angular/core';
         <h1 class="kyf-header">
           Know-Your-Food
         </h1>
-        <router-outlet></router-outlet>
+        <kyf-navigation></kyf-navigation>
+        <div class="kyf-content">
+            <router-outlet></router-outlet>
+        </div>
     </div>`,
     styleUrls: ['./app.component.css']
 

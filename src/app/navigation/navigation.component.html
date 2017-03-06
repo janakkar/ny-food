@@ -1,0 +1,13 @@
+<nav *ngIf="showNavBar()" class="navigation">
+    <ul class="navigation-menu">
+        <li class="navigation-item">
+            <a [routerLink]="['/home']" routerLinkActive="active">Calculator</a>
+        </li>
+        <li class="navigation-item">
+            <a [routerLink]="['/products']" routerLinkActive="active">Products</a>
+        </li>
+    </ul>
+    <div class="navigation-logout">
+      <input type="button" value="Logout" (click)="doLogout()">
+    </div>
+</nav>
