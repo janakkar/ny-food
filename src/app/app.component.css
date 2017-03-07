@@ -1,10 +1,15 @@
 .kyf-root {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  padding: 20px 25px 25px;
 }
 
 .kyf-header {
   flex-shrink: 2;
+  background-color: #D6F9DB;
+  color: #087A86;
+  padding: 10px 25px;
+}
+
+.kyf-content {
+  padding: 0px 25px 25px;
 }

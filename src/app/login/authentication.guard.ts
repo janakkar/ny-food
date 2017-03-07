@@ -1,27 +1,15 @@
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from "@angular/router";
-import {Observable, Subject} from "rxjs";
+import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
+import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
-import {AngularFire} from "angularfire2";
+import {AuthenticationService} from "./authentication.service";
 
 @Injectable()
 export class CanActivateIfAuthenticatedGuard implements CanActivate {
 
-
-    constructor(private af: AngularFire, private router: Router) {
+    constructor(private authService: AuthenticationService) {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>|Promise<boolean>|boolean {
-        const authState = new Subject<boolean>();
-        this.af.auth.subscribe((auth) => {
-          console.log(auth);
-          if (auth == null) {
-                this.router.navigate(['/login']);
-                authState.next(false);
-            } else {
-                authState.next(true);
-            }
-
-        });
-        return authState.first();
+        return this.authService.checkLogin();
     }
 }

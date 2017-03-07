@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
+import { NavigationComponent } from './navigation/navigation.component';
 import {CalculatorComponent} from './calculator/calculator.component';
 import {DropdownComponent} from "./common/dropdown.component";
 import {ProductService} from "./domain/product.service";
@@ -19,6 +20,7 @@ import { ProductsComponent } from './product/products.component';
 import { ProductGradeComponent } from './product/product-grade.component';
 import { ProductListComponent } from './product/product-list.component';
 import { BadgeComponent } from './common/badge.component';
+import { AuthenticationService } from "./login/authentication.service";
 
 export const firebaseConfig = {
     apiKey: "AIzaSyBWZy9gbtIO8bC4dSuhA1YCmAIwyy8XDcU",
@@ -36,6 +38,7 @@ const myFirebaseAuthConfig = {
 @NgModule({
     declarations: [
         AppComponent,
+        NavigationComponent,
         DropdownComponent,
         CalculatorComponent,
         LoginComponent,
@@ -54,7 +57,7 @@ const myFirebaseAuthConfig = {
         routing,
         AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
     ],
-    providers: [ProductService, IngredientService, Calculator, CanActivateIfAuthenticatedGuard],
+    providers: [AuthenticationService, ProductService, IngredientService, Calculator, CanActivateIfAuthenticatedGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {
