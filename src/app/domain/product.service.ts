@@ -1,26 +1,9 @@
 import {Injectable} from "@angular/core";
-import {AngularFire, FirebaseListObservable} from "angularfire2";
+import {AngularFire} from "angularfire2";
 import {Product} from "./product";
-import {Subject, Observable} from "rxjs";
+import {BadIngredient, GoodIngredient, Ingredient} from "./ingredient";
+import {Observable} from "rxjs";
 import {Calculator} from "../calculator/calculator";
-
-//
-// const getProductListResult = function (query: FirebaseListObservable<any[]>) {
-//     const subject = new Subject();
-//     query.subscribe((item) => {
-//         subject.next(item);
-//     });
-//
-//     return subject.first();
-// };
-
-const cleanCopy = <T,S>(source: T, destination: S): void => {
-    for (let prop in destination) {
-        if (source[prop] && destination.hasOwnProperty(prop)) {
-            destination[prop] = source[prop];
-        }
-    }
-};
 
 @Injectable()
 export class ProductService {
@@ -32,8 +15,8 @@ export class ProductService {
         return {
             name: '',
             productType: '',
-            badIngredients: [{type: 0, amount: 0}, {type: 1, amount: 0}, {type: 2, amount: 0}, {type: 3, amount: 0}],
-            goodIngredients: [{type: 0, amount: 0}, {type: 1, amount: 0}, {type: 2, amount: 0}]
+            badIngredients: Object.keys(BadIngredient).map(key => new Ingredient(key,0)),
+            goodIngredients: Object.keys(GoodIngredient).map(key => new Ingredient(key,0))
         };
     }
 

@@ -11,8 +11,8 @@ fdescribe('Calculator', () => {
         const kefir: Product = {
             name: 'Kefir', productType: 'Dairy', badIngredients: [
                 {type: BadIngredient.Calories, amount: 41},
-                {type: BadIngredient.SaturatedFats, amount: 0.6},
-                {type: BadIngredient.SimpleSugars, amount: 4.8},
+                {type: BadIngredient.Fats, amount: 0.6},
+                {type: BadIngredient.Sugar, amount: 4.8},
                 {type: BadIngredient.Salt, amount: 100}
             ],
             goodIngredients: [
@@ -22,8 +22,8 @@ fdescribe('Calculator', () => {
         const yogurt: Product = {
             name: 'Yogurt', productType: 'Dairy', badIngredients: [
                 {type: BadIngredient.Calories, amount: 67},
-                {type: BadIngredient.SaturatedFats, amount: 1.7},
-                {type: BadIngredient.SimpleSugars, amount: 5.8},
+                {type: BadIngredient.Fats, amount: 1.7},
+                {type: BadIngredient.Sugar, amount: 5.8},
                 {type: BadIngredient.Salt, amount: 200}
             ],
             goodIngredients: [
@@ -46,8 +46,8 @@ fdescribe('Calculator', () => {
         const product: Product = {
             name: 'Test', productType: 'Dairy', badIngredients: [
                 {type: BadIngredient.Calories, amount: 2020},
-                {type: BadIngredient.SaturatedFats, amount: 0},
-                {type: BadIngredient.SimpleSugars, amount: 30},
+                {type: BadIngredient.Fats, amount: 0},
+                {type: BadIngredient.Sugar, amount: 30},
                 {type: BadIngredient.Salt, amount: 0}
             ],
             goodIngredients: [

@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormGroup, FormBuilder} from "@angular/forms";
+import {Component, OnInit, ViewChild} from "@angular/core";
+import {FormGroup, FormBuilder, Validators, FormControl} from "@angular/forms";
 import {Product} from "../domain/product";
 import {ProductService} from "../domain/product.service";
 import {Calculator} from "./calculator";
@@ -7,6 +7,7 @@ import {ModalComponent} from "../common/modal/modal.component";
 import {IngredientService, IngredientMetadataDictionary} from "../domain/ingredient.service";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {BadIngredient, GoodIngredient} from "../domain/ingredient";
 
 const getKey = (o: any) => {
     return o.$key;
@@ -37,7 +38,7 @@ export class CalculatorComponent implements OnInit {
     @ViewChild(ModalComponent)
     private modal: ModalComponent;
 
-    constructor(private fb: FormBuilder, private productService: ProductService, private calculator: Calculator,
+    constructor(private formBuilder: FormBuilder, private productService: ProductService, private calculator: Calculator,
                 private ingredientService: IngredientService, private router: Router) {
     }
 
@@ -45,22 +46,32 @@ export class CalculatorComponent implements OnInit {
         this.metadata = this.ingredientService.getMetadata();
         this.productTypes = this.productService.getProductTypes();
 
-        const fb = this.fb;
+        const fb = this.formBuilder;
+        const createAmountValidator = (key) => {
+          const maxValue = this.ingredientService.getIngredientMaxValue(key);
+          return (c: FormControl) => {
+            return c.value <= maxValue ? null : {
+                validateAmount: {
+                  valid: false
+                }
+              };
+          };
+        };
 
         const createIngredientFormControl = (key) => {
             return fb.group({
-                type: key,
-                amount: 0
-            });
+                    type: key,
+                    amount: [0, createAmountValidator(key)]
+                }
+            );
         };
 
-        this.productForm = this.fb.group({
-            name: '',
+        this.productForm = this.formBuilder.group({
+            name: ['', Validators.required],
             productType: 'Dairy',
-            badIngredients: this.fb.array(this.ingredientService.getBadIngredientKeys().map(createIngredientFormControl)),
-            goodIngredients: this.fb.array(this.ingredientService.getGoodIngredientKeys().map(createIngredientFormControl))
-        })
-        ;
+            badIngredients: this.formBuilder.array(this.getBadIngredients().map(createIngredientFormControl)),
+            goodIngredients: this.formBuilder.array(this.getGoodIngredients().map(createIngredientFormControl))
+        });
 
         this.productForm.valueChanges.subscribe((value) => {
             if (value && value.goodIngredients && value.badIngredients) {
@@ -82,17 +93,19 @@ export class CalculatorComponent implements OnInit {
     }
 
     getBadIngredients() {
-        return this.ingredientService.getBadIngredients();
+        return Object.keys(BadIngredient);
     }
 
     getGoodIngredients() {
-        return this.ingredientService.getGoodIngredients();
+        return Object.keys(GoodIngredient);
     }
 
     calculate({value, valid} : {value: Product, valid: boolean}) {
-        this.product = value;
-        this.calculation = this.calculator.calculate(this.product);
-        this.grade = this.calculator.assignGrade(this.calculation);
+        if (valid) {
+            this.product = value;
+            this.calculation = this.calculator.calculate(this.product);
+            this.grade = this.calculator.assignGrade(this.calculation);
+        }
     }
 
     onSave() {
@@ -132,6 +145,6 @@ export class CalculatorComponent implements OnInit {
     }
 
     goToProducts() {
-      this.router.navigate(['/products']);
+        this.router.navigate(['/products']);
     }
 }

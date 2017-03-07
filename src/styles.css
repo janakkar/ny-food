@@ -67,7 +67,6 @@ input[type="number"] {
 }
 
 input[type="number"], input[type="text"] {
-    /*border: 2px solid #BFD6D8;*/
     border:none;
     color: #087A86;
     border-radius: 3px;
@@ -77,12 +76,12 @@ input {
     min-height: 27px;
     padding: 2px;
     margin: 2px;
+    outline-color: #087A86;
 }
 
 input[type="submit"] {
     min-height: 34px;
     color: #087A86;
-    /*background-color: #B9DCE7;*/
     background-color: #D6F9DB;
     border: 2px dashed #087A86;
     border-radius: 3px;
@@ -92,7 +91,6 @@ input[type="button"] {
     min-height: 24px;
     color: #087A86;
     background-color: #C8EFCD;
-    /*border: 1px solid #087A86;*/
     border: none;
     border-radius: 3px;
 }

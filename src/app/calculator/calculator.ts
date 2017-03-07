@@ -1,24 +1,6 @@
 import {BadIngredient, GoodIngredient, Ingredient} from "../domain/ingredient";
 import {Product} from "../domain/product";
 
-class IngredientThreshold {
-
-    grade: number;
-    threshold: number;
-    upperLimit?: boolean = false;
-
-    constructor(grade: number, threshold: number, upperLimit: boolean) {
-        this.grade = grade;
-        this.threshold = threshold;
-        this.upperLimit = upperLimit;
-    }
-
-    checkThreshold(ingredient: Ingredient) {
-        return this.upperLimit ? this.threshold >= ingredient.amount : this.threshold < ingredient.amount;
-    }
-
-}
-
 const bad: number[][] = [
     [335, 1, 4.5, 90],
     [335, 1, 4.5, 90],
@@ -42,27 +24,47 @@ const good: number[][] = [
     [80, 4.7, 8]
 ];
 
-type ThresholdDictionary = {[id: number]: IngredientThreshold[]};
 
-const initThresholds = function (ingredients: BadIngredient[] | GoodIngredient[], goodNotBad = true): ThresholdDictionary {
+class IngredientThreshold {
+
+    grade: number;
+    threshold: number;
+    upperLimit?: boolean = false;
+
+    constructor(grade: number, threshold: number, upperLimit: boolean) {
+        this.grade = grade;
+        this.threshold = threshold;
+        this.upperLimit = upperLimit;
+    }
+
+    checkThreshold(ingredient: Ingredient) {
+        return this.upperLimit ? this.threshold >= ingredient.amount : this.threshold < ingredient.amount;
+    }
+
+}
+
+const sum = (l: number[]) => {
+    return l.reduce((a, b) => a + b, 0);
+};
+
+type ThresholdDictionary = {[key: string]: IngredientThreshold[]};
+
+const initThresholds = function (thresholdInput: number[][], ingredients: string[]): ThresholdDictionary {
     const thresholds: ThresholdDictionary = {};
-    Object.keys(ingredients).forEach(o => thresholds[o] = []);
+    ingredients.forEach(o => thresholds[o] = []);
 
-    (goodNotBad ? good : bad).forEach((v, i) => {
-        Object.keys(ingredients).forEach(k => {
-            thresholds[k].push(new IngredientThreshold(i, v[k], i === 0));
+    thresholdInput.forEach((v, i) => {
+        ingredients.forEach((type,k) => {
+            thresholds[type].push(new IngredientThreshold(i, v[k], i === 0));
         });
     });
 
     return thresholds;
 };
 
-const badThresholds: ThresholdDictionary = initThresholds(Object.keys(BadIngredient).map(n => BadIngredient[n]), false);
-const goodThresholds: ThresholdDictionary = initThresholds(Object.keys(GoodIngredient).map(n => GoodIngredient[n]));
+const badThresholds: ThresholdDictionary = initThresholds(bad, Object.keys(BadIngredient));
+const goodThresholds: ThresholdDictionary = initThresholds(good, Object.keys(GoodIngredient));
 
-const sum = (l: number[]) => {
-    return l.reduce((a, b) => a + b, 0);
-};
 
 export class Calculator {
 

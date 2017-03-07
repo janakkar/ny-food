@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, forwardRef} from '@angular/core';
+import {Component, OnInit, Input, forwardRef} from "@angular/core";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
@@ -25,19 +25,13 @@ export class InputComponent implements OnInit, ControlValueAccessor {
     @Input()
     private controlName: string;
 
-    private propagateChange = (_: any) => {
-    };
-
-    constructor() {
-    }
-
-    ngOnInit() {
-    }
+    private propagateChange = (_: any) => {};
 
     onChange(newValue) {
         this.amount = newValue;
         this.propagateChange(this.amount);
     }
+    ngOnInit() {}
 
     writeValue(obj: any): void {
         this.amount = obj;
@@ -47,9 +41,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
         this.propagateChange = fn;
     }
 
-    registerOnTouched(fn: any): void {
-    }
+    registerOnTouched(fn: any): void {}
 
-    setDisabledState(isDisabled: boolean): void {
-    }
+    setDisabledState(isDisabled: boolean): void {}
 }
